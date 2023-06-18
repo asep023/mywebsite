@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hhhhh</title>
+
+    <style>
+      .success-message {
+        color: green;
+        font-weight: bold;
+      }
+
+      .Error-message {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="successMessage"
+      class="success-message"
+      style="display: none"
+    ></div>
+    <div id="ErrorMessage" class="Error-message" style="display: none"></div>
+
+    <script>
+      function showsuccessMessage(message) {
+        const successMessage = document.getElementById("successMessage");
+        successMessage.textContent = message;
+        successMessage.style.display = "block";
+
+        // Arahkan pengguna ke halaman HTML setelah login berhasil
+        window.location.href = "admin.html";
+      }
+
+      function showErrorMessage(message) {
+        const errorMessage = document.getElementById("errorMessage");
+        errorMessage.textContent = message;
+        errorMessage.style.display = "block";
+
+        window.location.href = "login.html";
+      }
+
+      // Contoh fungsi untuk memeriksa login
+      function checkLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Contoh kondisi jika login berhasil
+        if (username === "admin" && password === "123456") {
+          showsuccessMessage("Login berhasil");
+        } else {
+          showErrorMessage(
+            "Login gagal. Periksa kembali username dan password Anda."
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
